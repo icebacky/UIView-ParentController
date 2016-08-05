@@ -1,0 +1,2 @@
+# UIView-ParentController
+通过响应者链条获取view所在的controller
