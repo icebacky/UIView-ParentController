@@ -1,31 +1,15 @@
-# UIView-ParentController
+//
+//  UIView+ParentController.m
+//  HUD
+//
+//  Created by 韩啸宇 on 16/3/29.
+//  Copyright © 2016年 hxy. All rights reserved.
+//
 
-##如何获取到View所在的控制器
----
-有些时候我们在一个View中需要一些操作，push到某个Controller。
-如po主这个Demo，有几种不同的帖子信息，需要分开展示，所以上面楼主的信息自定义了一个View，用来展示组队类型的帖子。
-![](http://ww3.sinaimg.cn/mw690/6986863ejw1f6j1ate3gvj20hz0ur41r.jpg)
-在这个View中有一个静态的TableView来展示一系列的组队信息，其中总人数这一行，如果点击之后会push到一个新的Controller来展示申请用户的信息。
+#import "UIView+ParentController.h"
 
-这个跳转改如何实现？我问了一些面试者，他们的回答普遍是通过block或者代理，来让这个自定义的View跳转，这并不是我想要的答案呀T.T其实我想问的是如何通过这个自定义的TableHeaderView来获取到它父控件的Controller以及NavigationController，但是没有人想到该如何实现…吐槽一下
+@implementation UIView (ParentController)
 
-废话少说，要想获取到一个View所在的控制器，需要对响应者链条有一定的了解，不懂的童鞋可以Google一下。在这里我提供一个UIView的分类供大家使用，导入之后只需要`view.parentController`就可以轻松的获取到View所在的控制器了
-
-```objc
-#import <UIKit/UIKit.h>
-
-@interface UIView (ParentController)
-
-/** 这个方法通过响应者链条获取view所在的控制器 */
-- (UIViewController *)parentController;
-
-/** 这个方法通过响应者链条获取view所在的控制器 */
-+ (UIViewController *)currentViewController;
-
-@end
-```
-
-```objc
 //1.提供一个UIView的分类方法，这个方法通过响应者链条获取view所在的控制器
 - (UIViewController *)parentController
 
@@ -129,8 +113,5 @@
     return result;
     
 }
-```
 
-## GitHub
----
-点这里直接带走[GitHub](https://github.com/icebacky/UIView-ParentController)
+@end
